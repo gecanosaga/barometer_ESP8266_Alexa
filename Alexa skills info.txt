@@ -1,0 +1,31 @@
+barometer
+{query} est l' {Sensor_Values}
+{query} est la {Sensor_Values}
+
+
+Slots
+AMAZON.NUMBER
+
+measurment_type
+humidité
+température
+
+query
+est
+quelle
+
+switchstate
+off
+on
+
+tempscale
+celsius
+fahrenheit
+
+
+Intent Slots
+Switch_State -->switchstate
+Sensor_Values-->measurment_type
+Numbers-->AMAZON.NUMBER
+query-->query
+tmp_scale-->tempscale
