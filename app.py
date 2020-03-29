@@ -47,22 +47,22 @@ class HttpWSSProtocol(websockets.WebSocketServerProtocol):
             #print("Req-->"+alexaRequest)
             RequestJson = json.loads(alexaRequest)['request']['intent']['slots']
 
-            if 'est' not in RequestJson['query'].values() and 'quelle' not in RequestJson['query'].values():
+            #if 'est' not in RequestJson['query'].values() and 'quelle' not in RequestJson['query'].values():
 
-                print('cmd')
-                if 'value' not in RequestJson['Switch_State'].keys():
-                    value = RequestJson['Numbers']['value']
-                    obj = RequestJson['tmp_scale']['value']
-                    print({"object":obj,"value":value,"query":"cmd"})
-                    jsonRequest = {"object": obj.lower(), "value": value, "query": "cmd"}
-                else:
-                    state = RequestJson['Switch_State']['value']
-                    print(RequestJson['Switch_State']['value'])
-                    print({"object": "switch", "value": state, "query": "cmd"})
-                    jsonRequest = {"object": "switch", "value": state, "query": "cmd"}
-            else:
-                if 'value' in RequestJson['Sensor_Values'].keys():
-                    if 'température' in RequestJson['Sensor_Values']['value']:
+            #    print('cmd')
+            #   if 'value' not in RequestJson['Switch_State'].keys():
+            #       value = RequestJson['Numbers']['value']
+            #       obj = RequestJson['tmp_scale']['value']
+            #        print({"object":obj,"value":value,"query":"cmd"})
+            #        jsonRequest = {"object": obj.lower(), "value": value, "query": "cmd"}
+            #    else:
+            #        state = RequestJson['Switch_State']['value']
+            #        print(RequestJson['Switch_State']['value'])
+            #        print({"object": "switch", "value": state, "query": "cmd"})
+            #        jsonRequest = {"object": "switch", "value": state, "query": "cmd"}
+            #else:
+                if 'value' in RequestJson['sensor_values'].keys():
+                    if 'température' in RequestJson['sensor_values']['value']:
                         #print('What is the current temperature?')
                         print({"object": "température", "value": "température", "query": "?"})
                         jsonRequest = {"object": "température", "value": "température", "query": "?"}
